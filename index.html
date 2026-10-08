@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071522">
+  <title>FFA Ejército Uruguayo</title>
+  <style>
+    :root{--navy:#071522;--navy2:#0c2335;--blue:#1269a9;--sky:#32b5dc;--white:#f4f8fb;--muted:#aab9c6;--line:#ffffff20}
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;background:var(--navy);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .topbar{position:sticky;top:0;z-index:10;background:#071522ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1320px;margin:auto;min-height:76px;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.08em;font-size:14px;white-space:nowrap}
+    .brand img{width:48px;height:48px;object-fit:contain;border-radius:50%;background:#fff}
+    .links{display:flex;align-items:center;gap:clamp(14px,3vw,38px);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .links a{color:#d8e3eb;transition:color .2s}
+    .links a:hover{color:var(--sky)}
+    .menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:8px;padding:9px 12px;font-size:20px}
+    .hero{min-height:calc(100vh - 76px);display:flex;align-items:center;justify-content:center;padding:28px 4vw 70px;background:radial-gradient(ellipse at 50% 10%,#1269a944,transparent 55%),linear-gradient(180deg,#0b2942,#071522 80%)}
+    .hero-inner{width:min(1500px,100%);text-align:center}
+    .banner{display:block;width:100%;max-height:66vh;object-fit:contain;filter:drop-shadow(0 20px 35px #0005)}
+    .hero-copy{margin:20px auto 0;max-width:760px}
+    .eyebrow{color:#7bdcff;font-size:12px;font-weight:900;letter-spacing:.28em;text-transform:uppercase}
+    h1{font-size:clamp(30px,5vw,58px);line-height:1.05;margin:12px 0;font-weight:950;letter-spacing:.025em}
+    .hero-copy p{color:#c2d0dc;font-size:clamp(15px,1.6vw,18px);line-height:1.7;margin:0 auto 25px}
+    .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:14px 22px;border-radius:7px;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;border:1px solid #ffffff30;transition:transform .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}.primary{background:#087fbd;border-color:#087fbd}.primary:hover{background:#079bdc}.secondary{background:#ffffff08}
+    section{padding:92px 24px;scroll-margin-top:75px}
+    .wrap{max-width:1120px;margin:auto}
+    .section-head{text-align:center;margin-bottom:38px}
+    .section-head .eyebrow{font-size:11px}
+    h2{font-size:clamp(28px,4vw,42px);margin:10px 0;font-weight:950}
+    .section-head p{color:var(--muted);line-height:1.7;max-width:650px;margin:0 auto}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{padding:28px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#102b40,#0a1b2a);min-height:190px}
+    .card .num{font-size:12px;color:var(--sky);font-weight:900;letter-spacing:.18em}
+    .card h3{font-size:20px;margin:16px 0 9px}.card p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
+    #juego{background:#0a1d2c}#divisiones{background:#071522}#rangos{background:#0a1d2c}#grupos{background:#071522}
+    .callout{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:32px;border:1px solid #36b9e455;border-radius:12px;background:linear-gradient(110deg,#0d4262,#0b2234)}
+    .callout h3{font-size:24px;margin:0 0 8px}.callout p{color:#c2d0dc;margin:0;line-height:1.6}
+    footer{border-top:1px solid var(--line);padding:28px 24px;color:#8ea2b2;font-size:12px;text-align:center;letter-spacing:.04em}
+    @media(max-width:760px){.nav{padding:12px 18px}.brand{font-size:11px}.brand img{width:40px;height:40px}.menu{display:block}.links{display:none;position:absolute;top:74px;left:0;right:0;padding:20px;background:#071522;flex-direction:column;align-items:stretch;gap:0;border-bottom:1px solid var(--line)}.links.open{display:flex}.links a{padding:15px 8px}.hero{min-height:auto;padding:30px 16px 64px}.banner{max-height:none}.cards{grid-template-columns:1fr}.callout{align-items:flex-start;flex-direction:column}section{padding:70px 18px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio"><img src="logo.png" alt="Escudo FFA Ejército Uruguayo"><span>FFA<br>EJÉRCITO URUGUAYO</span></a>
+      <button class="menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <div class="links" id="navLinks">
+        <a href="#inicio">Inicio</a><a href="#juego">Juego</a><a href="#divisiones">Divisiones</a><a href="#rangos">Rangos</a><a href="#grupos">Grupos</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <img class="banner" src="banner.png" alt="Banner de FFA Ejército Uruguayo">
+        <div class="hero-copy">
+          <div class="eyebrow">Experiencia militar · Roblox</div>
+          <h1>FFA EJÉRCITO URUGUAYO</h1>
+          <p>Bienvenido al sitio oficial de la comunidad. Explorá el juego, conocé las divisiones y descubrí cómo formar parte.</p>
+          <div class="actions"><a class="btn primary" href="#juego">Conocer el juego</a><a class="btn secondary" href="#grupos">Ver grupos</a></div>
+        </div>
+      </div>
+    </section>
+    <section id="juego"><div class="wrap"><div class="section-head"><div class="eyebrow">La experiencia</div><h2>El juego</h2><p>Todo lo que necesitás saber sobre FFA Ejército Uruguayo, reunido en un solo lugar.</p></div><div class="cards"><article class="card"><div class="num">01 / INFORMACIÓN</div><h3>Conocé el FFA</h3><p>Agregá aquí una descripción de tu juego, sus objetivos y qué pueden hacer los jugadores.</p></article><article class="card"><div class="num">02 / ACTIVIDAD</div><h3>Entrenamientos</h3><p>Publicá los horarios de entrenamientos, eventos y actividades de la comunidad.</p></article><article class="card"><div class="num">03 / NORMAS</div><h3>Reglamento</h3><p>Incluí las reglas de juego y las normas que deben respetar los miembros.</p></article></div></div></section>
+    <section id="divisiones"><div class="wrap"><div class="section-head"><div class="eyebrow">Organización</div><h2>Divisiones</h2><p>Presentá las divisiones oficiales de tu grupo y explicá qué función cumple cada una.</p></div><div class="cards"><article class="card"><div class="num">DIVISIÓN 01</div><h3>Nombre de división</h3><p>Descripción breve de esta división. Podés cambiar el nombre y el texto.</p></article><article class="card"><div class="num">DIVISIÓN 02</div><h3>Nombre de división</h3><p>Descripción breve de esta división. Podés cambiar el nombre y el texto.</p></article><article class="card"><div class="num">DIVISIÓN 03</div><h3>Nombre de división</h3><p>Descripción breve de esta división. Podés cambiar el nombre y el texto.</p></article></div></div></section>
+    <section id="rangos"><div class="wrap"><div class="section-head"><div class="eyebrow">Jerarquía</div><h2>Rangos</h2><p>Mostrá la jerarquía de rangos y cómo pueden avanzar los integrantes.</p></div><div class="cards"><article class="card"><div class="num">01</div><h3>Recluta</h3><p>Rango inicial para los nuevos integrantes.</p></article><article class="card"><div class="num">02</div><h3>Soldado</h3><p>Rango para miembros que ya forman parte de la unidad.</p></article><article class="card"><div class="num">03</div><h3>Oficial</h3><p>Rango de liderazgo. Adaptá esta sección a tus rangos reales.</p></article></div></div></section>
+    <section id="grupos"><div class="wrap"><div class="section-head"><div class="eyebrow">Comunidad</div><h2>Grupos</h2><p>Un espacio para reunir a los jugadores y compartir novedades.</p></div><div class="callout"><div><h3>Formá parte de la comunidad</h3><p>Agregá aquí el enlace de tu grupo de Roblox o de tu servidor de Discord.</p></div><a class="btn primary" href="https://www.roblox.com/" target="_blank" rel="noopener">Ir a Roblox ↗</a></div></div></section>
+  </main>
+  <footer>© <span id="year"></span> FFA Ejército Uruguayo · Comunidad de Roblox</footer>
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰'});
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
